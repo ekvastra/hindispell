@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Hindi spell checker.">
+    <meta name="keywords" content="Hindi, spell checker">
+    <title>Hindi Spell Checker</title>
+    <script>
+        var wordList = [];
+    </script>
+
+    <script src="wordConvertion.js" defer="defer"></script>
+    <script src="rules.js" defer="defer"></script>
+    <script src="unicode.js" defer="defer"></script>
+    <script src="core.js" defer="defer"></script>
+
+    <script src="unicodelist.js" defer="defer"></script>
+    <!--script src="chanakyalist.js" defer="defer"></script-->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .container {
+          width: auto;
+          max-width: 680px;
+          padding: 0 15px;
+        }
+        
+        .footer {
+          background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body onload="initApp()" onkeydown="addWordFromKeyboard(event)" onkeyup="onKeyUpBody(event)" class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+<div id="mainbody" class="container">
+		<h1 class="mt-3">Hindi spelling checker</h1>
+		<span hidden id="version" style="font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#666;">Version : 3.7</span>
+        <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+		            <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="language">Dictionary</label>
+                        </div>
+                        <select class="custom-select" title="Select dictionary to use." name="language" id="language" onchange="changeLanguage(this)">
+                            <option value="unicode" selected>Unicode</option>
+                            <option hidden value="chanakya">Chanakya</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">    
+                        <button type="button" name="checkSpellButton" id="checkSpellButton" class="btn btn-outline-primary mr-1" onclick="checkSpell()">Spell check</button>
+                        <input hidden type="button" name="button" onclick="clearApplication()" id="button" value="Clear">
+                        <button type="button" class="btn btn-outline-primary" name="button2" id="button2" onclick="clearFormat()">Clear format</button>
+                        <span hidden title="Press control button while clicking the word if right side charactors are correct. Left suggestions will be offered." style="cursor:pointer;">
+		                    Suggested words:    
+                            <input name="leftCheck" type="checkbox" id="leftCheck" checked="checked">Left Check 
+                        </span>
+                        <span hidden title="Press shift button while clicking the word if left side charactors are correct. Right suggestions will be offered." style="cursor:pointer;">
+                            <input name="rightCheck" type="checkbox" id="rightCheck" checked="checked">
+                            Right Check
+                        </span>
+                        <span hidden id="wordCount" style="float:right;">Chanakya : 51643, Unicode : 58780</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <style>
+            div[data-placeholder]:not(:focus):not([divPlaceholderContent]):before {
+                content: attr(data-placeholder); 
+                margin-left: 2px;
+                color: #b3b3b3;
+            }
+        </style>
+        <script>
+            function RemovePlaceHolder() {
+                var anchor = document.getElementById("editor");  
+                anchor.setAttribute("divPlaceholderContent", "true");
+                return;
+            }
+        </script>
+    <div style="min-height: 250px;" id="editor" class="border rounded-lg  mb-3" onmousedown="editrOnMouseUp(event)"
+    contentEditable="true" spellcheck="false" data-placeholder="Please enter Hindi text here." onfocus="RemovePlaceHolder()">
+        <!-- jsharma See initLanguage() in core.js and add font-family: Chanakya; conditionally for Chanakya dictionary. -->
+    </div>
+</div>
+</main>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span>
+        <p>Powered by The Ekvastra Team. <a rel="external" href="https://wiki.ekvastra.in/">Wiki.</a> <a rel="external" href="https://ekvastra.in/">Blog.</a> <a rel="external" href="https://ekvastra.in/privacy-policy">Privacy policy.</a> <a rel="external" href="https://ekvastra.in/contact-us">Contact us.</a></p>
+    </span>
+  </div>
+</footer>
+
+</body>
+
+</html>

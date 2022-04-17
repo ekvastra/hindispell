@@ -1,0 +1,90 @@
+        .editorUnicode{
+        	width:95%;
+        	background-color:#FFFFFF;
+        	font-family:Georgia, "Times New Roman", Times, serif;
+        	min-height:300px;
+        	margin-top:30px;
+        	
+        }
+        
+        .editorChanakya{
+        	width:99%;
+        
+        	font-family:Chanakya;
+        	font-size:20px;
+        }
+        
+        .wordList {
+            width: 100px;
+            height: 400px;
+            position: absolute;
+            border: 1px solid #CCC;
+            background-color: #FFF;
+        }
+        
+        .invalidWord {}
+        
+        body {
+            margin: 1px;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 12px;
+        }
+        
+        .wordListSuggestion {
+            width: 200px;
+            height: 150px;
+            overflow: auto;
+            font-family: Chanakya;
+            font-size: 15px;
+        }
+        
+        .wordListSuggestionPerent {
+            width: 200px;
+            position: absolute;
+            border: 1px solid #DEDEDE;
+            background-color: #FFF;
+            z-index: 1000;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, .3);
+        }
+        
+        .addToListOption {
+            height: 20px;
+            padding-left: 10px;
+            font-size: 12px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            color: #777;
+            background-color: #DDD;
+            padding-top: 3px;
+            cursor: pointer;
+        }
+        
+        .editToListOption {
+            /*height:20px;*/
+            padding: 3px;
+            font-size: 12px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            color: #777;
+            background-color: #DDD;
+            cursor: pointer;
+        }
+        
+        .invalidWord {
+            /*background-color:#FF9;*/
+            color: #F00;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        .wordListItem {
+            padding: 2px;
+            padding-left: 10px;
+        }
+        
+        .wordListItem:hover {
+            background-color: #009;
+            color: #FFF;
+        }
+        
+        #wordCount {
+            float: right;
+        }
